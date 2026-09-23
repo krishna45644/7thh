@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+    A little message for my bubuuuuu ji .... 
+</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 50% 10%,#4a4034 0,#28231e 38%,#120f0c 100%);
+    color:#392817;
+    font-family:Georgia,"Times New Roman",serif;
+    overflow-x:hidden;
+}
+
+/* Dusty atmosphere */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.12;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0 3px,
+            rgba(255,255,255,.18) 4px
+        );
+    mix-blend-mode:overlay;
+}
+
+/* Main scene */
+.scene{
+    width:min(920px,96vw);
+    margin:auto;
+    padding:70px 0 90px;
+    perspective:1200px;
+}
+
+.scroll{
+    position:relative;
+    filter:drop-shadow(0 30px 35px rgba(0,0,0,.65));
+}
+
+/* =========================
+   TOP ROLL
+========================= */
+
+.roll{
+    height:82px;
+    position:relative;
+    z-index:10;
+
+    border-radius:50%;
+
+    background:
+        repeating-linear-gradient(
+            8deg,
+            rgba(55,29,10,.18) 0 2px,
+            transparent 3px 9px
+        ),
+        radial-gradient(
+            ellipse at 50% 35%,
+            #d0a765 0 20%,
+            #95682f 52%,
+            #503117 100%
+        );
+
+    box-shadow:
+        inset 0 9px 15px rgba(255,240,195,.25),
+        inset 0 -12px 16px rgba(30,15,5,.55),
+        0 7px 10px rgba(0,0,0,.4);
+
+    transform-origin:center;
+}
+
+/* Inner shadow of roll */
+.roll::before{
+    content:"";
+
+    position:absolute;
+    left:6%;
+    right:6%;
+    top:18px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:rgba(48,26,9,.34);
+
+    filter:blur(2px);
+}
+
+/* Highlight */
+.roll::after{
+    content:"";
+
+    position:absolute;
+    inset:8px 9%;
+
+    border-radius:50%;
+
+    border-top:2px solid rgba(255,236,187,.18);
+}
+
+/* =========================
+   PAPER
+========================= */
+
+.paper{
+    position:relative;
+
+    margin-top:-22px;
+
+    padding:
+        100px
+        clamp(28px,8vw,82px)
+        115px;
+
+    min-height:1200px;
+
+    overflow:hidden;
+
+    background:
+
+        /* Dust spots */
+        radial-gradient(
+            circle at 4% 16%,
+            rgba(52,27,9,.27) 0 1px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 96% 30%,
+            rgba(52,27,9,.23) 0 2px,
+            transparent 5px
+        ),
+
+        radial-gradient(
+            circle at 8% 72%,
+            rgba(52,27,9,.20) 0 1px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 93% 82%,
+            rgba(52,27,9,.22) 0 1px,
+            transparent 4px
+        ),
+
+        /* Paper grain */
+        repeating-linear-gradient(
+            0deg,
+            rgba(70,42,18,.045) 0 1px,
+            transparent 1px 7px
+        ),
+
+        /* Dark edges */
+        linear-gradient(
+            90deg,
+            rgba(55,30,10,.22),
+            transparent 8%,
+            transparent 92%,
+            rgba(55,30,10,.22)
+        ),
+
+        #d3b274;
+
+    box-shadow:
+        inset 0 0 80px rgba(54,29,10,.46),
+        inset 0 0 15px rgba(35,18,7,.3);
+
+    /* Irregular edge */
+    clip-path:polygon(
+        1.4% 0,
+        98.8% .3%,
+        99.3% 7%,
+        98.5% 12%,
+        99.4% 18%,
+        98.6% 24%,
+        99.1% 31%,
+        98.4% 37%,
+        99.2% 44%,
+        98.6% 51%,
+        99.3% 58%,
+        98.5% 65%,
+        99.1% 72%,
+        98.4% 79%,
+        99.2% 86%,
+        98.5% 93%,
+        98.8% 100%,
+
+        1.2% 99.5%,
+        .5% 94%,
+        1.4% 88%,
+        .6% 82%,
+        1.3% 75%,
+        .5% 68%,
+        1.4% 61%,
+        .6% 54%,
+        1.3% 47%,
+        .5% 40%,
+        1.4% 33%,
+        .6% 26%,
+        1.3% 19%,
+        .5% 12%,
+        1.4% 6%
+    );
+}
+
+/* =========================
+   BURNT EDGE
+========================= */
+
+.paper::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        /* Left burnt sections */
+        radial-gradient(
+            ellipse 24px 55px at 0% 8%,
+            rgba(32,15,5,.90) 0 35%,
+            rgba(72,34,10,.72) 48%,
+            transparent 72%
+        ),
+
+        radial-gradient(
+            ellipse 27px 64px at 0% 29%,
+            rgba(34,16,5,.92) 0 30%,
+            rgba(76,37,11,.70) 45%,
+            transparent 70%
+        ),
+
+        radial-gradient(
+            ellipse 23px 58px at 0% 53%,
+            rgba(30,14,4,.91) 0 31%,
+            rgba(73,35,10,.70) 47%,
+            transparent 73%
+        ),
+
+        radial-gradient(
+            ellipse 20px 52px at 0% 76%,
+            rgba(30,14,4,.90) 0 33%,
+            rgba(72,34,10,.68) 48%,
+            transparent 74%
+        ),
+
+        /* Right burnt sections */
+
+        radial-gradient(
+            ellipse 18px 40px at 100% 15%,
+            rgba(30,14,5,.88) 0 32%,
+            rgba(73,35,11,.68) 48%,
+            transparent 74%
+        ),
+
+        radial-gradient(
+            ellipse 20px 48px at 100% 39%,
+            rgba(31,14,4,.90) 0 34%,
+            rgba(73,34,10,.66) 49%,
+            transparent 74%
+        ),
+
+        radial-gradient(
+            ellipse 26px 66px at 100% 66%,
+            rgba(32,15,5,.92) 0 29%,
+            rgba(77,38,12,.68) 46%,
+            transparent 72%
+        ),
+
+        radial-gradient(
+            ellipse 25px 57px at 100% 88%,
+            rgba(30,14,4,.91) 0 31%,
+            rgba(75,36,11,.70) 47%,
+            transparent 73%
+        ),
+
+        /* Tiny soot */
+        radial-gradient(
+            circle at 2% 21%,
+            rgba(24,11,3,.9) 0 2px,
+            transparent 5px
+        ),
+
+        radial-gradient(
+            circle at 98% 27%,
+            rgba(24,11,3,.85) 0 1.5px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 3% 64%,
+            rgba(24,11,3,.9) 0 1.5px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 97% 74%,
+            rgba(24,11,3,.9) 0 2px,
+            transparent 5px
+        ),
+
+        radial-gradient(
+            circle at 1% 94%,
+            rgba(24,11,3,.85) 0 2px,
+            transparent 5px
+        );
+
+    filter:blur(.25px);
+
+    mix-blend-mode:multiply;
+}
+
+/* Paper fibers / singed shading */
+
+.paper::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        repeating-linear-gradient(
+            27deg,
+            transparent 0 17px,
+            rgba(255,244,205,.035) 18px 19px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(26,12,3,.22),
+            transparent 3%,
+            transparent 97%,
+            rgba(26,12,3,.22)
+        );
+
+    box-shadow:
+        inset 7px 0 10px rgba(38,18,5,.16),
+        inset -7px 0 10px rgba(38,18,5,.16);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content{
+    position:relative;
+    z-index:2;
+}
+
+.eyebrow{
+    text-align:center;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    font-size:12px;
+
+    color:#634522;
+}
+
+h1{
+    text-align:center;
+
+    font-weight:400;
+
+    font-size:clamp(42px,7vw,72px);
+
+    margin:15px 0 8px;
+}
+
+.ornament{
+    text-align:center;
+
+    font-size:28px;
+
+    margin:15px 0 45px;
+
+    color:#6d4520;
+}
+
+.letter{
+    font-size:20px;
+
+    line-height:1.9;
+
+    white-space:pre-line;
+}
+
+/* First letter */
+.letter:first-letter{
+    font-size:75px;
+
+    float:left;
+
+    line-height:.75;
+
+    padding:8px 12px 0 0;
+}
+
+.signature{
+    text-align:right;
+
+    font-size:25px;
+
+    font-style:italic;
+
+    margin-top:70px;
+}
+
+/* Wax seal */
+
+.wax{
+    width:78px;
+    height:78px;
+
+    margin:60px auto 0;
+
+    border-radius:50%;
+
+    display:grid;
+    place-items:center;
+
+    color:#e4c996;
+
+    font-size:25px;
+
+    background:
+        radial-gradient(
+            circle at 33% 28%,
+            #a33b30,
+            #571613 72%
+        );
+
+    box-shadow:
+        0 8px 13px rgba(0,0,0,.35);
+}
+
+/* =========================
+   BOTTOM ROLL
+========================= */
+
+.bottom-roll{
+    height:76px;
+
+    margin-top:-20px;
+
+    position:relative;
+
+    z-index:10;
+
+    border-radius:50%;
+
+    background:
+        repeating-linear-gradient(
+            8deg,
+            rgba(55,29,10,.18) 0 2px,
+            transparent 3px 9px
+        ),
+        linear-gradient(
+            #70491f,
+            #b4884a 45%,
+            #4e3117
+        );
+
+    box-shadow:
+        inset 0 9px 14px rgba(255,238,190,.18),
+        0 9px 13px rgba(0,0,0,.4);
+}
+
+/* =========================
+   OPENING ANIMATION
+========================= */
+
+.scroll.closed .paper{
+    clip-path:inset(0 0 97% 0);
+
+    transform:scaleY(.035);
+
+    transform-origin:top;
+
+    min-height:900px;
+}
+
+.scroll.closed .content{
+    opacity:0;
+
+    transform:translateY(-20px);
+}
+
+.scroll.opening .paper{
+    animation:
+        unroll
+        2.8s
+        cubic-bezier(.16,.8,.2,1)
+        forwards;
+}
+
+.scroll.opening .content{
+    animation:
+        contentIn
+        1.2s
+        ease
+        2s
+        forwards;
+}
+
+@keyframes unroll{
+
+    0%{
+        clip-path:inset(0 0 97% 0);
+
+        transform:scaleY(.035);
+    }
+
+    55%{
+        clip-path:inset(0 0 43% 0);
+
+        transform:scaleY(.57);
+    }
+
+    100%{
+        clip-path:inset(0);
+
+        transform:scaleY(1);
+    }
+}
+
+@keyframes contentIn{
+
+    to{
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.open-btn{
+    position:fixed;
+
+    right:22px;
+    bottom:22px;
+
+    z-index:30;
+
+    border:1px solid rgba(230,201,145,.45);
+
+    background:#241b13;
+
+    color:#e4c995;
+
+    padding:12px 18px;
+
+    border-radius:30px;
+
+    font-family:Georgia;
+
+    cursor:pointer;
+
+    box-shadow:0 7px 20px rgba(0,0,0,.35);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .scene{
+        padding-top:35px;
+    }
+
+    .roll{
+        height:60px;
+    }
+
+    .bottom-roll{
+        height:56px;
+    }
+
+    .paper{
+        padding:
+            75px
+            28px
+            90px;
+    }
+
+    .letter{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <main class="scroll closed" id="scroll">
+
+        <!-- TOP WRAPPED SCROLL -->
+        <div class="roll"></div>
+
+        <!-- PAPER -->
+        <section class="paper">
+
+            <div class="content">
+
+                <div class="eyebrow">
+                    HAPPY 7 MONTH MUMMAAA....
+                </div>
+
+                <h1>
+                    your duduuu...
+                </h1>
+
+                <div class="ornament">
+                    ✦ ───────── ❦ ───────── ✦
+                </div>
+
+                <div class="letter" id="letter">
+
+jaaanuuuu...,
+
+I loveeeeee youuuuuuuu ...
+
+mummaaa... happpyyy 7 monthsssss... 
+Meko nhi pta me teko kese treat kerta hu per me mera best deta hu mummaaaa sorryyy ager me teko hurt kerta rhta hu 
+per na me kabhi bhi jaan buch ke nhi kerta tu mere ko kite ache se rakhti hai na per na meko nhi pta me rakh pata hu ya nhi 
+her roj sone se phle rhta hai ki bubuuuuuuu ko ache se rakh parha hu ya nhi me shi hu ya nhi pta nhi mummaaaa kya chal rha hai 
+me teko her roj hurt ker deta hu na mummaaaaaa me try kerta hu na kru per ho jata hai sorryyyy mummaaa.... 
+Me na aaj ek promise kerta hu ki best dunga abhi bhi de rha hu per aage se aur dunga mumma ji... 
+i loveeee youuuuuu mottuuuuuuuuu tere se bhut pyaar krta hu mumma ji me 
+jub bhi na tu khti hai na ki aage kya hoga kisko pta meri ruh nikal jati hai mumma ji sachi me jaan nikal aati hai bahar 
+sorryyyyyyy mummaaaaaaaaa me best nhi hu per bnunga mumma bnungaaaa.... 
+aapne ek baar bola tha dheere dheere sheekh jayega mummmaa me mera best deta hu ki phle vali galtiya dubara na dohrau
+per pta nhi phir vhi galtiya ker deta hu baarrrrrrrrr baarrrrrrrr sorryyyyyyy 
+i know meri sorryyyy se tere ko jita hurt huva hai vo heal to nhi ker pauga per na mera best dunga ki aage se same mistakes na dohrau mummaaaaaa ji 
+teko yaad ek baar tune mere se kha tha ki me teri apni hu na to sorry mat bola kro phle mene bola tha fir aapne bola tha hehe 
+per aapne bola tha to uska bhaar jyada huva mummaaaaaa per galtiya hi eti bdi hai ki meko sorryyyy bolne per bhi bhut guilt hota hai ki 
+kis muh se bol rha hu galtiya repeat to kerta rhta hu mumma ne kiti baar bola hai ki ese nhi kerna me fir bhi vo ker deta hu sorryyyyyyyy... mummaaaaa ji 
+i loveeeeeeeeee youuuuuuuuuu sooooooooo sooooooooooo sooooooooooo sooooooooooo muchhhhhhhh moreeeeeeee mummaaaaaaaa jiii... tu bhut pyari hai 
+tere samne me jtia bhi kru tere comparision me dhoool brabar bhi nhi hai tune us time mere ko shambhala jis time koi mere sath nhi tha 
+abhi bhi nhi hai tere siva koi sath dil se per abh mere ko koi chiye bhi nhi mummaa tu hai bus mere ko meri duniya mil gyi mumma ji 
+sach bta rha mera bhagvan ji se man uth gya tha me meri jindgi me kuch nhi kerna chahta tha 
+meko bus mumma papa ka loss cover kerna tha aur fir mera koi motive nhi tha na hi koi spne the 
+abh hai abh mere paas aapp ho aapke liye kerna hai bhut kuch kerna hai aapko ek esi life deni hai jo aap 
+real me deserve kerte ho me krunga mumma aapke liye sub kuch dunga jo aap deserve kerte ho 
+tu bhut pyaari hai motuuuuuuuu mereko nhi pta me kya likh rha hu per abh likh rha hu to thoda hlka lag rha hai mumma tu meri kiti fikar kerti hai na 
+bubuuuuuu eta pyaarrrrrr kerti hai mere se mere ko aur kya chiyeeee bus na ek chij mangta hu tere se ki kabhi bhi jooth nhi bolna mere se chahe kesa bhi ho 
+sach bolna bus mere ko bus sach chiye 
+transparency rhe ya na rhe kismat ki baat hai per sach chiye mumma meko aur kuch nhi chahiye tu mere se behd pyaar kerti hai meko pta hai ye chij aur 
+meko ye bhi pta hai ki un dino ke baad se tune koi bhi jooth nhi bola hai ya bola hai bhi to bhi nhi pta meko meko jaannaa bhi nhi hai 
+per na me bhut hurt ker deta hu na teko un sub baato ke leke 
+kiti baar to vaps se le aata hu per na mumma me bus jo chal rha hota hai vo btata hu tere samne meko mask phnke nhi rhna 
+tu jub bhi kisi se baat kerti hai meko jealousy hoti hai mere ko dar lagta hai kyuki jha pe bhi me average rha hu vha se meko bus replacement hi milah ai 
+mumma meko pta hai tu nhi chodegi meko i know per na dar to lagta hai na 
+jub aapke pas duniya ki sbse khoobsurat cration ho to dar lagna to lajmi hai na 
+bus vhi baat hai esliye etna darta hu 
+i know me perfect nhi hu per bnunga mumma tere liye better jrur bnunga mumma ji pinkyyyyy walaaa promiseeeeeeeee mumma ji 
+i loveeeeeeeeeeeeeeee youuuuuuuuuuuuuuu soooooooooooo soooooooooooooo soooooooooooo soooooooooooo soooooooooooo soooooooooo soooooooooo sooooooooo muchhhhhhh moreeeeeeeee meriiiiiii jaaaaannnnnnn meri bubuuuuuu meri sweetuuuuuuu... 
+meko nhi pta me kya likh rha hu bus dil se likh rha h u
+tu bus apna khyaal rkha ker tere se sunta hu na ki mere eski lagi vo lgi to bhut ese dar sa lagta hai budhuuuuuu ji bhut jyada lagta hai 
+tu pleaseeeeee na apna dhyaan rkha ker na 
+i loveeeeeeee youuuuuuuuuuu soooooooooo soooooooooo soooooooooo sooooooooooo sooooooooo soooooooooo soooooooooo sooooooooo soooooooooooooooo muchhhhhhhh moreeeeee meriiiiii jaannnnn meri bubuuuuuu meriii sweetuuuuuu meri jindgiiiiiii... 
+mera na ek hi dream hai tere ko happy rkhna hai bhut jyada vo sub chije tere pero pe rkhni hai jiska kabhi tune dream dekha tha 
+tera ye btana ki aaj kya huva mujhe sunnaaaaaa tera smile teraaaaa her ek act mujhe bhut pyaara lagta hai bubuuuu ji 
+teko lagta hai ki tu meko hurt kerti hai per esa kuch nhi hai mumma ji aai spat 
+esa kuch nhi hai me hurt hota hu kyuki tu sad ho jati hai bura lagta hai kuch baato ka mereko bhi per na teri happiness se jyada mere liye kuch bhi mayne nhi rkhta hai mumma ji 
+i loveeeeeeeeeeeeeeee youuuuuuuuuuuuuuuuuu sooooooooooooooooooo sooooooooooooooooooooooooo soooooooooooooooooooooooo sooooooooooooooooooooo sooooooooooooooooooooo sooooooooooooooooooooooooo muchhhhhhhhhhhhhhhhh mroeeeeeeeeeeeeeeeeeeeeeeee meriiiiiiiiii jannnnnnnnnnnnuuuuuuuuuuuuu
+I wish me tere ko vo sarri khusiya de pau aur dunga i know mummaaaaaaa ji 
+per na kabhi kabhi khud pe sval aajate hai dimaag me ki me shi hu ya nhi me shi se rakh pata hu ya nhi sorrrrrryyyyy meko pta hai jese tere me meri jaan bsti hai mere em teri bsti hai sorryyyyy tere shree ko etna kam aankne ke liye 
+per na me khud jaan buch ke nhi ekrta jo aata hai bta deta hu mumma ji 
+kyukii i want tere samne koi mask na rhe 
+mumma ji i loveeeeeeeeeeeeeeeeeeee youuuuuuuuuuuuuuuuuuu soooooooooooooooooooooooo sooooooooooooooooooooooooo soooooooooooooooooooooooo sooooooooooooooooooooo sooooooooooooooooooooo muchhhhhhhhhh moreeeeeeeem eriiiiiiiiiii jaaaann meri bubuuuuuuu merii sweetuuuuu meri sub kuchhhuuuuuuuu 
+i missss you i wish tu mere eti close hoti ki jub bhi tere ko thoda sa bhi low feel hota me hota teko shambhalne ke liye her ek possible chije kerta jo teri thodi si smile ko trigger ker de 
+i reallyyy loveeeeee youuuuuu mummaaaaaaaaaaaaa ji 
+tu bhut pyaari hai mumma ji kabhi na esa kuch bna es dharti pe ki ek dusre ka vision dekh ske to tere ko dikhata ki meri najaro me tu kya hai mumma ji mere jivan me kuch nhi tha jiski me tarif kru abh 
+khuda ne tarifiy kabbil insaan vo bhi eta pyaara bheja hai na kya btau man to kerta hai duniya ke sare pyaare pyaare words likh du tere liyeeeee bus tere liye 
+meri jindgi ke best pal the na vo ye 9 month the mummaaaa kyuki enme aap the mummaaaaaa ji 
+dekh ek baat bolta hu ki tu mere se bus juth nhi bolna baki sab chlega tu mere ko maar dena per jooth nhi bolna mumma ji 
+meko hurt hota hai meko pta nhi tha phle jub se tu aayi hai mere soft virsion ko trasa hai mumma tune i'm really lucky ki tu meri life me aayi 
+i'm soooooooo sooooooooooo sooooooooooooooo luckyyyyyyyyyyyy i got youuuuuuu 
+i wish me agle janam me tera body part bnke janam lu taki tere  sath janam se rhu i lvoeeeeeeee youuuuuuuu mummaaaaaaa ji 
+bhut bhut bhut bhut bhut jyada hi kerta hu mumma ji aapse mene meri jindgi me kissi se pyaar nhi kiya bus tere se kiya hai aur bhut kerta hu mumma ji eta jita na hi kisi ne kisi se kiya hoga na hi koi ker payega aai sapt
+mumma ji 
+i wishhhh tu kabhi khud ko meri najar se dekh paye to pta lge teko ki tu kya hai mere lyie mumma ji tu bhut jyada pyaari hai bhut bhut jyada hi pyaari hai mumma ji tera meri bakvash baate sunna tere samne rona mereko bhut acha lagta hai tu mere ko sukoon deti hai 
+teri voice tera vo muskurana dantna hukum kerna sub bhut acha lagta hai mumma ji tu hai to lagta hai ki sub mil gya tu rooth jati hia to lagta hai mera sansaar khali sa ho gya hai 
+sorrrrrrryyyyyy mumma meri saari mistakes ke liyeeeeee 
+aur thank youuuuu( acha vala hai )merko duabra bnane ke liye teko andaja bhi nhi hai tune mujhe kha se kha tak heal kiya hai tune ek lash me pran fuke hai mumma ji 
+apni baato se lahje se apne andaaj se apni aankho se her chij se mere ko eta lagav hai ek din agar koi chij na dikhe na to bhut bhut bhut bhut virana sa lagta hai me tere se behd jayada vali mhobat kerta hu mumma ji 
+aur meri aakhiri sans tak kerta rhunga mumma ji i loveeeeeeeeeeee youuuuuuuuuuuuu soooooooooooooooo sooooooooooo sooooooooo sooooooooo sooooooooo muchhhhhhhhh moreeeeeeee meriiiiiii jaannnnnnnn meriiii biviiiiiii..... 
+mene hmesha se khuda se manga tha ki meko hinata mil jaye per khuda ne meko khuda ki kasam khuda de diya tere samne hinata kya duniya ki aur virtual creations sub fiki si lagti hai sub tere pero ki dhool sman hai mumma ji 
+i reallyyyyyyyyyy love   youuuuuuuuu mummaaaaaaaaa ji 
+tere ko yaad hai tune phli dfa jub meko i loveeee youuuu too bola tha 
+vo din hai yaad mujhko bhi jub tha dekha tujhko pehli baar na pta tha tum ho kon bus tha apna sa ahsaas 
+mummaaaaaa me shi nhi hu per bnunga ek din eta shi bnunga ki tere layak ho pau sayad vo to na ho pau per tere pere ki dhool ke brabar to ho pau mera best dunga mumma ji 
+pinkyyyyy promiseeeeeee mumma ji 
+again thank you meko choose kerne ke liye meko dusra janam dene ke liyeee duniya ne china tha vo sub dene ke liyeeeee meko pyaar kerne ke liye acha vala hai mohtrma ji to na gussa pleaseeeeeeeeee
+i loveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee youuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu sooooooooooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooo 
+soooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooo
+sooooooooooooooooooooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+soooooooooooooooooooooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooooooo
+sooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo soooooooooooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooooooooooooooo sooooooooooooooooooooooooooooooooooooo
+muchhhhhhhhhhhhh moreeeeeeeee meriiiiiiiiiii jaannnnnnnnn meriiii bubuuuuu meriii sweetuuuu meri golu molu si pyari si biviii ji i love  youuuuuuuu .. i really do really alot eta jita define nhi kyia ja skta words me jesa aapne kha tha 
+me hmesha tere sath hu tera bnke rhunga mumma ji 
+kabhi ye mat sochna ki ye khichla jayga me nhi jauga mumma ji khi bhi teri shadow me jrur mil jauga kyukiiiii teri shadow me mere ko vo ghar milta hai jo mujhe bhagvan ne nhi diya mera sukoonnnn mera pyaaarrrr meriiii jindgiiiiii meraaa sansarrrr bus tum hi ho abh 
+
+HAPPYYYY 7 MONTHS BUBUUUUUU JI 
+I HOPE ME HER DFA THODA BETTER BNA HU
+NHI BNA TO BHI ABH BNKE JRUR DIKHAUGA MUMMA JI 
+TERE SE SACHI ME BEHD PYAAR KERTA HU MUMMA JI 
+MUMMAAAAAAA JI .... 
+AAPKA DUDUUUUUUU.... 
+MEKO MAAF KER DENA MUMMA MERI SAARI MISTAKES KE LIYE PLEASEEEEEEEEE..... 
+I KNOW ME ACHA BACHA NHI HU PER BNUNGA MUMMA JI PKAAAAA BNUNGA JI 
+PINKYYYY PROMISEEEEEEEEEEE... 
+HAPPPY 7TH MONTH ANNIVERSORYYY MUMMA JI .....
+SBSE PHLE MERIIII TRF SE MERIIIII MUMMA KO ........................ 
+HAPPY 7 MONTHS MUMMA JI .... 
+aaapko mere gaane psnd hai na ruko gaata hu abhi yha pe to likh hi skta hu kal suna dunga ji pkkaaaaa pkaaaaaa 
+i loveeeeeeeeeeeeeeeeeeeeeeeeeeee youuuuuuuuuuuuuuuuuuuuuuu sooooooooooooooooo soooooooooooooo sooooooooooooo muchhhhhhhhhh mroeeeeeeeeeeeeeeee meriiiiiiiiiii jaannnnnn meriiiiii bubuuuuuuu ji ....
+       || mumma meri bnegi kyaa????(offcource meri hi hai tu )||
+       Mumma... 
+       Ek baat puchu?
+       thoda ajeeb sa swaal hai 
+       per dil, tan man se yu didaar hai ...
+
+       Mujhe pasnd teri muskurahat, per sahara aashuon ka bnna hai.. 
+       Aur thak har ke duniys se , chup ho jaye tu 
+       mujhe bus tere pass thoda sa hona hai ... 
+       tujhe dekhun to lagta hai mannooo khoobsurti yhi hoti hai (offcource meko pta hai yhi hoti hai )
+       per phir tu kisi ke liye kuch kerti hai 
+       aur lagta hai... baat usse bhi bdi hoti hai... (halanki mereko teri helping nature psnd hai per na aajakal ka jamana nhi hai bachuuuu ji everone thinks ki tu easy target hai samjhii budhuuuuu ji )
+       tera lehja hi to hai,
+       jo tujhe alag banata hai 
+       chehra to WQT KE SATH badlega 
+       per tera dil mujhe her baar mera, sirf mera sa lagta hai .... 
+       teri sharartein, tera bachpnaa
+       tera bin wjah ke yun mushkurana 
+       phir choti si baat pe rooth jaana 
+       aur mera tujhe manana 
+       bad ek swaal hai --
+       ye sab dekhte rehne ki ejajat degi kya ?
+       tere ko niharne ki do pal ki aur mohlat degi kya ???? 
+       Mumma ..
+       bnegi kya, mere her din ki wajah ?
+       main aaankhon se dekh paun ya na paun, 
+       rooh se to dekhta hu tujhe sada 
+       Mumma.. bnegi kya, jub me tootunga. mera kandha.... 
+       teri smile ka hu dewaana 
+       per tere aanshoun ka shara bnna chahta hu .. 
+
+       kuch kal ke liye chod dete hai na mumma ji 
+       budhuuuu ji sherniiii ji 
+       HAPPYYY 7 MONTHS JI 
+       TUNE MERI LIFE KO LIFE BNA DIYA SACHI ME JINA SIKHA DIYA TUNE 
+       MUMMA JI 
+       I REALLYYYY LOVEEEEEEEE YOUUUUUUUUUUUUUUUUUUUUU...... 
+       AGAIN THANK YOU ACHA VALA HAI JI 
+       AUR HAPPY 7 TH MONTH ANNIVERSORY... 
+
+                </div>
+
+                <div class="signature">
+                    — hmesha tera mumma ji 
+                </div>
+
+                <div class="wax">
+                    ♥
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- BOTTOM ROLL -->
+        <div class="bottom-roll"></div>
+
+    </main>
+
+</div>
+
+<button class="open-btn" id="openBtn">
+    Unroll ✦
+</button>
+
+
+<script>
+
+const scroll =
+    document.getElementById("scroll");
+
+const button =
+    document.getElementById("openBtn");
+
+
+/* Open scroll */
+
+function openScroll(){
+
+    scroll.classList.remove("closed");
+
+    scroll.classList.add("opening");
+
+    button.textContent =
+        "Replay ↻";
+}
+
+
+/* Button */
+
+button.addEventListener("click",()=>{
+
+    if(
+        scroll.classList.contains("opening")
+    ){
+
+        scroll.classList.remove("opening");
+
+        /*
+          Force browser to restart
+          the animation.
+        */
+
+        void scroll.offsetWidth;
+
+        scroll.classList.add("closed");
+
+        button.textContent =
+            "Unroll ✦";
+
+    }else{
+
+        openScroll();
+
+    }
+
+});
+
+
+/* Automatically open */
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        openScroll();
+
+    },500);
+
+});
+
+</script>
+
+</body>
+</html>
